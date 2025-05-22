@@ -41,6 +41,7 @@ class BinarySearchTree:
 #  |  Test code below will print output to "User logs"  |
 #  +====================================================+
 
+
 def tree_to_list(node):
     """Helper function to convert tree to list level-wise for easy comparison"""
     if not node:
