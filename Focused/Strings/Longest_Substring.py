@@ -30,7 +30,8 @@ def longest_substring_v1(str):
 # the whole string as soon as a single dup comes..Ideally we need to restart
 # new string from the char next to dup charater
 
-# The ideal solution is below which works for all the siutations
+# The ideal solution is below which works for all the siutations. It is also called
+# sliding window alogrithm
 def longest_substring_v3(str):
     if len(str) <= 1:
         return len(str)
