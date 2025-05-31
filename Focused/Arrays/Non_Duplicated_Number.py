@@ -23,8 +23,19 @@ def find_single_number_v1(nums):
             ideal_sum += 2*num
             unique.add(num)
         actual_sum += num
-    return ideal_sum - actual_sum;
+    return ideal_sum - actual_sum
+
+# The best solution with O(n) time complexity but O(1) space complexity
+# with XOR magic
+def find_single_number_v2(nums):
+    if nums is None or len(nums) < 1:
+        return None
+    
+    result = nums[0]
+    for i in range(1, len(nums)):
+        result ^= nums[i]
+    return result
 
 print("\n\n")
-print(f"Single Number in the given list is: {find_single_number_v1([1,2,1,2,3,11,11,4,4,5,5,7,7])}")
+print(f"Single Number in the given list is: {find_single_number_v2([1,2,1,2,3,11,11,4,4,5,5,7,7])}")
 print("\n\n")
