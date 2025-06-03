@@ -6,9 +6,9 @@ def add_binary_strings(str1, str2):
     while i >= 0 or j >= 0 or carry == 1:
         digit1 = '0'
         digit2 = '0'
-        if i > 0:
+        if i >= 0:
             digit1 = str1[i]
-        if j > 0: 
+        if j >= 0: 
             digit2 = str2[j]
         result = str((int(digit1)+int(digit2) + carry)%2) + "" + result
         carry =  (int(digit1)+int(digit2) + carry)//2
@@ -18,5 +18,5 @@ def add_binary_strings(str1, str2):
     return result
 
 print("\n\n")
-print(add_binary_strings("1111", "0001"))
+print(add_binary_strings("1111", "1111"))
 print("\n\n")
