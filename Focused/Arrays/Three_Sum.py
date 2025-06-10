@@ -1,3 +1,4 @@
+# Typical two-sum with O(n) approach
 def two_sum_v1(nums, sum):
     lookup = dict()
     for num in nums:
@@ -6,7 +7,7 @@ def two_sum_v1(nums, sum):
         lookup[num] = sum - num
     return None
 
-# Brute Force approach
+# Brute Force approach - with O(n2)
 def three_sum(nums, target):
     lookup = dict()
     for num in nums:
