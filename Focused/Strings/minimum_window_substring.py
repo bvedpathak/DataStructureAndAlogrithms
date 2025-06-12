@@ -19,27 +19,18 @@ def min_window_substr(input_str, str):
     b = 0
     e = 0
     min_substr_len = len(input_str)
-    result = []
+    result = [-1, -1]
 
     lookup = {}
     outcome = {}
 
     # Populate the Lookup map
     for chr in str:
-        if chr in lookup:
-            lookup[chr] = lookup.get(chr) + 1
-        else:
-            lookup[chr] = 1
-    
+        lookup[chr] = lookup.get(chr,0) + 1
+
     while e < len(input_str):
-        temp_str = [b, e]
         if input_str[e] in lookup:
-            
-            if input_str[e] in outcome:
-                outcome[input_str[e]] = outcome.get(input_str[e]) + 1
-            else:
-                outcome[input_str[e]] = 1
-            
+            outcome[input_str[e]] = outcome.get(input_str[e], 0) + 1
             if is_a_substr(lookup, outcome):
                 if min_substr_len > e - b:
                     min_substr_len = e - b
@@ -59,9 +50,9 @@ def min_window_substr(input_str, str):
                         min_substr_len = e - b
                         result = [b, e]
         e += 1
-    return result
+    return input_str[result[0]:result[1]+1]
     
 
 print("\n\n")
-print(min_window_substr("amplewatersupplyars", "ars"))
+print(min_window_substr("abaacad", "aaa"))
 print("\n\n")
