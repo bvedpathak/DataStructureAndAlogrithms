@@ -30,7 +30,8 @@ def merge_k_sorted_lists(input_list):
         ans = merge_two_sorted_lists(ans, lst)
     return ans
 
-# Recurrsive way of merging
+# Recurrsive way of merging - This one is more efficient than the 
+# iterative way
 def merge(input_list):
     if input_list is None or len(input_list) < 1:
         return None
