@@ -3,87 +3,81 @@ class Node:
         self.value = value
         self.left = None
         self.right = None
-
+        
 
 class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    def __r_insert(self, current_node, value):
-        if current_node == None:
-            return Node(value)
-        if value < current_node.value:
-            current_node.left = self.__r_insert(current_node.left, value)
-        elif value > current_node.value:  # Changed to elif to avoid comparing twice if equal
-            current_node.right = self.__r_insert(current_node.right, value)
-        return current_node
+    def print_tree(self, root, level=0, prefix="Root: "):
+        if root is not None:
+            print(" " * (level * 4) + prefix + str(root.value))
+            if root.left is not None or root.right is not None:
+                self.print_tree(root.left, level + 1, "L--- ")
+                self.print_tree(root.right, level + 1, "R--- ")
 
-    def r_insert(self, value):
-        if self.root == None:
-            self.root = Node(value)
-        else:
-            self.__r_insert(self.root, value)
+    def insert(self, value):
+        new_node = Node(value)
+        if self.root is None:
+            self.root = new_node
+            return True
 
-    def invert(self):
-        self.root = self.__invert_tree(self.root)
+        temp = self.root
 
-    def __invert_tree(self, node):
-        if node is None:
+        while temp:
+            if new_node.value == temp.value:
+                return False
+            if new_node.value < temp.value:
+                if temp.left is None:
+                    temp.left = new_node
+                    return True
+                temp = temp.left
+                continue
+            if new_node.value > temp.value:
+                if temp.right is None:
+                    temp.right = new_node
+                    return True
+                temp = temp.right
+        return True
+    
+    def lowest_common_ancestor(self, curr_node, p, q):
+        if curr_node is None:
             return None
+        
+        if curr_node.value == p or curr_node.value == q:
+            return curr_node
+        
+        left = self.lowest_common_ancestor(curr_node.left, p, q)
+        right = self.lowest_common_ancestor(curr_node.right, p, q)
 
-        temp = self.__invert_tree(node.right)
-        node.right = self.__invert_tree(node.left)
-        node.left = temp
-
-        return node
-
-#  +====================================================+
-#  |  Test code below will print output to "User logs"  |
-#  +====================================================+
-
-
-def tree_to_list(node):
-    """Helper function to convert tree to list level-wise for easy comparison"""
-    if not node:
-        return []
-    queue = [node]
-    result = []
-    while queue:
-        current = queue.pop(0)
-        if current:
-            result.append(current.value)
-            queue.append(current.left)
-            queue.append(current.right)
+        if left is None and right is None:
+            return None
+        
+        ## This is the main determination of a parent
+        if left and right:
+            return curr_node
+        
+        if left is not None:
+            return left
         else:
-            result.append(None)
-    while result and result[-1] is None:  # Clean up trailing None values
-        result.pop()
-    return result
+            return right 
+        
+my_tree = BinarySearchTree()
+my_tree.insert(5)
+my_tree.insert(2)
+my_tree.insert(7)
+my_tree.insert(1)
+my_tree.insert(3)
+my_tree.insert(4)
+my_tree.insert(6)
+my_tree.insert(7)
+my_tree.insert(8)
+   
+print("\n\n")
+print("The existing full tree is:")
+my_tree.print_tree(my_tree.root, 0, "Root: ")
+print("\n")
+print("The lowest common ancestor tree is:")
+lca = my_tree.lowest_common_ancestor(my_tree.root, 8, 6)
+my_tree.print_tree(lca, 0, "Root: ")
 
-
-def test_invert_binary_search_tree():
-    print("\n--- Testing Inversion of Binary Search Tree ---")
-    # Define test scenarios
-    scenarios = [
-        ("Empty Tree", [], []),
-        ("Single Node", [1], [1]),
-        ("Tree with Left Child", [2, 1], [2, None, 1]),
-        ("Tree with Right Child", [1, 2], [1, 2]),
-        ("Multi-Level Tree", [3, 1, 5, 2], [3, 5, 1, None, None, 2]),
-        ("Invert Twice", [4, 2, 6, 1, 3, 5, 7], [4, 2, 6, 1, 3, 5, 7]),
-    ]
-
-    for description, setup, expected in scenarios:
-        bst = BinarySearchTree()
-        for num in setup:
-            bst.r_insert(num)
-        if description == "Invert Twice":
-            bst.invert()  # First inversion
-        bst.invert()  # Perform inversion (or second inversion for the specific case)
-        result = tree_to_list(bst.root)
-        print(f"\n{description}: {'Pass' if result == expected else 'Fail'}")
-        print(f"Expected: {expected}")
-        print(f"Actual:   {result}")
-
-
-test_invert_binary_search_tree()

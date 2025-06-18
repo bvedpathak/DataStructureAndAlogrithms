@@ -4,10 +4,10 @@ class Node:
         self.left = None
         self.right = None
         
-
 class BinarySearchTree:
     def __init__(self):
         self.root = None
+        self.ans = 0
 
     def print_tree(self, root, level=0, prefix="Root: "):
         if root is not None:
@@ -40,31 +40,24 @@ class BinarySearchTree:
                 temp = temp.right
         return True
     
-    def kth_smallest(self, curr_node, count, k):
-        ans_node = None
+    def max_path_sum(self, curr_node):
+        if curr_node is None:
+            return 0
         
-        def find_kth_smallest(curr_node, count, k):
-            nonlocal ans_node
-            if count >= k:
-                return count
-            
-            if curr_node is None:
-                count += 0
-                return count
-            
-            count = find_kth_smallest(curr_node.left, count, k)
-            count += 1
-            
-            if count == k:
-                ans_node = curr_node
-                return count
-            
-            count = find_kth_smallest(curr_node.right, count, k)
-            return count
-        
-        find_kth_smallest(curr_node, count, k)
-        return ans_node.value if ans_node is not None else None
+        left_sum = self.max_path_sum(curr_node.left)
+        right_sum = self.max_path_sum(curr_node.right)
 
+        ## Max for the one side plus the current node
+        max_side = max(curr_node.value, max(left_sum, right_sum) + curr_node.value)
+        ## Max for the current node plus both the sides 
+        max_current = max(max_side, curr_node.value + left_sum + right_sum)
+        ## Store if current + one side is bigger or current + both side is bigger to a global variable
+        self.ans = max(self.ans, max_current)
+        
+        ## Important: just return the current side maximum the entire so far across is the tree is stored
+        ## in the global variable 
+        return max_side
+            
 my_tree = BinarySearchTree()
 my_tree.insert(5)
 my_tree.insert(2)
@@ -75,14 +68,10 @@ my_tree.insert(4)
 my_tree.insert(6)
 my_tree.insert(7)
 my_tree.insert(8)
-
-
-k = 7
+   
+print("\n\n")
+print("The existing full tree is:")
 my_tree.print_tree(my_tree.root, 0, "Root: ")
-
-print(f"The {k}th smallest in the Tree is: {my_tree.kth_smallest(my_tree.root, 0, k)}")
-
-
-
-
+print("\n")
+print(f"The max_path_sum for a one side is: {my_tree.max_path_sum(my_tree.root)} and entire tree is {my_tree.ans}")
 
