@@ -17,6 +17,8 @@ def group_anagrams(lst):
     return result
 
 print("\n\n")
-print(group_anagrams(['abc', 'cab', 'ate', 'tae', 'cat', 'atc', 'eat', 'tea', 'nat', 'tan']))
+#print(group_anagrams(['abc', 'cab', 'ate', 'tae', 'cat', 'atc', 'eat', 'tea', 'nat', 'tan']))
+print(group_anagrams(["eat","tea","tan","ate","nat","bat"]))
+
 print("\n\n")
 
