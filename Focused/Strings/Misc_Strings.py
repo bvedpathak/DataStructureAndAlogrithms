@@ -15,4 +15,22 @@ def replace_spaces(str1):
 
     return new_string
 
-print(replace_spaces("a bc "))
+## str1 = 'waterbottle' str2 = 'etbottlewat'
+## we only have one call of isSubstring available to make in order to
+## figure out if it is a rotation. 
+## Solution: str1 = <xy> e.g. str2 = <yx> so s1+s1 ie. xyxy will always have 
+## <yx> as a substring e.g. 'waterbottlewaterbottle' has 'erbottlewat' as a 
+## substring i.e. 'wat<erbottlewat>erbottle
+def string_rotation_check(str1, str2):
+    if str1 is None or str2 is None:
+        return False
+    if len(str1) != len(str2):
+        return False
+    return str2 in (str1+str1)
+
+print("\n")
+#print(string_rotation_check('waterbottle', 'erbottlewat'))
+#print(replace_spaces("a bc "))
+#print(is_a_char_removed('', ''))
+#print(is_a_char_replaced('a', 'bc'))
+print("\n")
