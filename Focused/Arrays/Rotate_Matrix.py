@@ -33,7 +33,8 @@ def rotate_matrix_v2(matrix):
         for j in range(i, col_max - 1):
             count = 0
             temp = matrix[i][j]
-            while count < len(matrix):
+            ## Only 4 sides to move so this look has to be a constant
+            while count < 4:
                 temp1 = matrix[j][row_max - 1 - i]
                 matrix[j][row_max - 1 - i] = temp
                 temp = temp1
@@ -54,5 +55,9 @@ matrix1 =[[ 1,  2,  3,  4],
          [ 5,  6,  7,  8],
          [ 9, 10, 11, 12]
          ]
-for i in rotate_matrix_v2(matrix):
+
+matrix2 =[[ 1,  2],
+         [ 5,  6]
+         ]
+for i in rotate_matrix_v2(matrix2):
     print(i)
