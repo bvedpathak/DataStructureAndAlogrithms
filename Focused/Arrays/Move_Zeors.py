@@ -43,12 +43,29 @@ def moveZeroes_v3(nums):
     for x in range(j, len(nums)):
         nums[x] = 0
 
+## Another approach using two pointers
+def move_zeros_v4(nums):
+    if nums is None:
+        return None
+    if len(nums) < 2:
+        return nums
+    
+    place_to_add_pointer = 0 
+    non_zero_num_pointer = 0
+
+    for non_zero_num_pointer in range(len(nums)):
+        if nums[non_zero_num_pointer] != 0:
+            nums[place_to_add_pointer], nums[non_zero_num_pointer] = nums[non_zero_num_pointer], nums[place_to_add_pointer]
+            place_to_add_pointer += 1
+
+    return nums
+
 print("\n\n")
-print(move_zeros_v2([1,2,4,0,5,0,6,0]))
-print(move_zeros_v2([0,0,4,0,5,0,6,0]))
-print(move_zeros_v2([0,0,0,0,0,0,0,0]))
-print(move_zeros_v2([0,0,0,0,0,0,0,1]))
-print(move_zeros_v2([1,2,3,4,5,6,7,8]))
+print(move_zeros_v4([1,2,4,0,5,0,6,0]))
+print(move_zeros_v4([0,0,4,0,5,0,6,0]))
+print(move_zeros_v4([0,0,0,0,0,0,0,0]))
+print(move_zeros_v4([0,0,0,0,0,0,0,1]))
+print(move_zeros_v4([1,2,3,4,5,6,7,8]))
 
 print("\n\n")
 

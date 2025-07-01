@@ -6,8 +6,29 @@ def two_sum(nums, sum):
                 return [nums[i], nums[j]]
     return None
 
-# Optimal solution with O(n) time complexity and O(n) space complexity
+# Another method of two_sum if we have a sorted array or we can
+# sort the array 
+# Time: O(n.log n), Space: O(1)
 def two_sum_v1(nums, sum):
+    if nums is None:
+        return None
+    nums = sorted(nums) 
+    i = 0
+    j = len(nums) - 1
+
+    while i < j:
+        if nums[i] + nums[j] == sum:
+            return [nums[i], nums[j]] 
+        
+        if nums[i] + nums[j] < sum:
+            i += 1
+        else:
+            j -= 1
+    return None
+        
+
+# Optimal solution with O(n) time complexity and O(n) space complexity
+def two_sum_v2(nums, sum):
     lookup = dict()
     for num in nums:
         if sum - num in lookup:
@@ -15,6 +36,8 @@ def two_sum_v1(nums, sum):
         lookup[num] = sum - num
     return None
 
+
 print("\n\n")
-print(two_sum_v1([1,2,3,5], 1))
+print(two_sum_v1([5,1,3,2,5], 5))
+print(two_sum_v2([5,1,3,2,5], 5))
 print("\n\n")
