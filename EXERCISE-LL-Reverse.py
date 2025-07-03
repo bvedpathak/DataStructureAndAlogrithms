@@ -121,7 +121,14 @@ class LinkedList:
             before = temp
             temp = after
 
-
+    def reverse_recursively(self, node):
+        if (not node) or (not node.next):
+            return node
+        new_node = self.reverse_recursively(node.next)
+        node.next.next = node
+        node.next = None
+        return new_node
+    
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
 my_linked_list.append(3)
@@ -129,8 +136,8 @@ my_linked_list.append(4)
 
 print('LL before reverse():')
 my_linked_list.print_list()
-
-my_linked_list.reverse()
+my_linked_list.head = my_linked_list.reverse_recursively(my_linked_list.head)
+#my_linked_list.reverse()
 
 print('\nLL after reverse():')
 my_linked_list.print_list()
