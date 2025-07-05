@@ -47,8 +47,6 @@ def longest_substring_v3(str):
         r += 1
     return(longest_substring)
 
-
-        
 print("\n\n")
 print(longest_substring_v3("acdcecaf"))
 print("\n\n")
