@@ -25,7 +25,6 @@ def evaluate_expression(str1):
     return result + (curr_num * sign)
   
 print("\n")
-#str1 = '2+(2-1)'
 str1 = '18 - ( 7 + ( 2 - 4 ) )'
 print(f"Result of the expression {str1} = {evaluate_expression(str1)}")
 print("\n")
