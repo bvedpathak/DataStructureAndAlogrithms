@@ -2,15 +2,13 @@
 ## and adding them to a right place in the new matrix
 ## Time: O(n2), Space: O(n)
 def rotate_matrix_v1(matrix):
-    if matrix is None:
+    if not matrix:
         return None
-    if len(matrix) < 1:
-        return matrix
     
     row_max = len(matrix)
     col_max = len(matrix[0])    
 
-    result = [[0 for _ in range(row_max)] for _ in range(col_max)]
+    result = [[0 for _ in range(col_max)] for _ in range(row_max)]
 
     for i in range (len(matrix)):
         for j in range (len(matrix[i])):
@@ -23,17 +21,16 @@ def rotate_matrix_v1(matrix):
 ## Time: O(n2), Space: O(1)
 ## Constraint: Since it is a in-place replacement, the M X N should be the same
 def rotate_matrix_v2(matrix):
-    if matrix is None:
+    if not matrix:
         return None
-    if len(matrix) < 1:
-        return matrix
+    
     row_max = len(matrix)
     col_max = len(matrix[0])  
     for i in range(col_max//2):
         for j in range(i, col_max - 1):
             count = 0
             temp = matrix[i][j]
-            ## Only 4 sides to move so this look has to be a constant
+            ## Only 4 sides to move so this while loop has to be a constant
             while count < 4:
                 temp1 = matrix[j][row_max - 1 - i]
                 matrix[j][row_max - 1 - i] = temp

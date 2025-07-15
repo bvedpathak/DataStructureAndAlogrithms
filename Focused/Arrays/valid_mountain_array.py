@@ -24,12 +24,17 @@ def validMountainArray(A):
     while (i < len(A) and A[i] > A[i - 1]):
         i += 1
 
+    # We stayed where we were OR we reached at the end continously climbing
+    # that means it is not the mountain array
     if (i == 1 or i == len(A)):
         return False
 
+    # Now keep going down as much as possible
     while (i < len(A) and A[i] < A[i - 1]):
         i += 1
-
+    # If we reach to the end of the list, if we reach at the
+    # end of the array means, we reach the downhill without 
+    # encountering any uphill..which means a valid mountain array
     return i == len(A)
 
 print(f"is Mountain: {is_mountain([1,2,3,4,3,2,1])}")

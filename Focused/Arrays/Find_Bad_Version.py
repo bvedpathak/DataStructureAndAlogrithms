@@ -1,5 +1,6 @@
+# The method picks the first bad version (arbitrary)
 def isBadVersion(n):
-    if n >= 1:
+    if n >= 2:
         return True
     return False
 
@@ -10,22 +11,19 @@ def find_first_bad_version(nums):
             return num 
     return None
 
-## An Optimal solution with divide and conquer
+## An Optimal solution with divide and conquer (Binary Search)
+## Time: O(log n)
 def find_first_bad_version_v1(nums):
-    if nums is None or len(nums) < 1:
+    if not nums:
         return None
-    start = 0
-    end = len(nums) 
-    mid = (start + end) // 2
-    while mid >= start and mid < end:
+    l, r = 0, len(nums)
+    while l < r:
+        mid = (l + r) // 2
         if isBadVersion(nums[mid]):
-            end = mid 
+            r = mid
         else:
-            start = mid
-        mid = (start + end) // 2
-        if mid == len(nums) - 1:
-            break
-    return end if end < len(nums) else -1
+            l = mid + 1
+    return nums[l]
 
 print("\n\n")
 print(find_first_bad_version_v1([1,2,3,4,5,6,7,8,9,10]))

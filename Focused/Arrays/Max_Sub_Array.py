@@ -1,6 +1,7 @@
 def max_subarray(nums):
-    if nums is None or len(nums) < 1:
+    if not nums:
         return 0
+    
     result = list(range(len(nums)))
     max_sum = nums[0]
     result[0] = nums[0]
@@ -9,8 +10,8 @@ def max_subarray(nums):
             result[i] = nums[i]
         else:
             result[i] = result[i-1] + nums[i]
-        if max_sum < result[i]:
-            max_sum = result[i]
+            
+        max_sum = max(max_sum, result[i])
     return max_sum
 
 def max_water_container(nums):
@@ -39,7 +40,7 @@ def max_water_container(nums):
 
 print(f"\nStart Index, End Index and Area is: {max_water_container([5,9,2,1,4])}")
 
-## Amother solution for the above container problem:
+## Another solution for the above container problem:
 
 def maxArea(height):
     maxarea = 0
@@ -81,3 +82,7 @@ print("Example 3: Input:", input_case_3, "\nResult:", result_3)
     Result: -1
 
 """
+
+'''
+
+'''

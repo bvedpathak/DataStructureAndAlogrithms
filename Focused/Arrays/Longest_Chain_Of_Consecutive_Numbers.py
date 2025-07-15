@@ -25,9 +25,7 @@ def longest_consecutive_sequence(nums):
 ## store the max
 ## Time: O(n), Space: O(n)
 def longest_consecutive_sequence_v1(nums):
-    if nums is None:
-        return None
-    if len(nums) < 1:
+    if not nums:
         return 0
     
     lookup = set(nums)
@@ -35,14 +33,17 @@ def longest_consecutive_sequence_v1(nums):
     max_chain_count = 0
 
     for num in nums:
+        # If the current number is the smallest number in it's chain, then it is
+        # a start of the chain so search for the lenght of the chain and record max
         if num - 1 not in lookup:
             curr_num = num
             curr_chain = 1
-        while (curr_num + 1) in lookup:
-            curr_num += 1
-            curr_chain += 1
+            # Continue to find the next consecutive numbers in the chain
+            while (curr_num + 1) in lookup:
+                curr_num += 1
+                curr_chain += 1
         
-        max_chain_count = max(max_chain_count, curr_chain)
+            max_chain_count = max(max_chain_count, curr_chain)
 
     return max_chain_count
         

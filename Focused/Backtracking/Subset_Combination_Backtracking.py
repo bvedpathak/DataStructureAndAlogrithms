@@ -1,4 +1,4 @@
-def add_to_answer_and_repeat(index, curr, ans, nums):
+def add_to_answer_and_repeat(nums, ans, curr, index):
     if index > len(nums):
         return
     
@@ -7,15 +7,15 @@ def add_to_answer_and_repeat(index, curr, ans, nums):
     
     for i in range(index, len(nums)):
         curr.append(nums[i])
-        add_to_answer_and_repeat(i+1, curr, ans, nums)    
+        add_to_answer_and_repeat(nums, ans, curr, i+1)    
         curr.pop()
     return
 
 def find_all_subsets(nums):
     ans = []
-    add_to_answer_and_repeat(0, [], ans, nums)
+    add_to_answer_and_repeat(nums, ans, [], 0)
     return ans
 
 print("\n\n")
-print(find_all_subsets([1]))
+print(find_all_subsets([1, 2, 3]))
 print("\n\n")

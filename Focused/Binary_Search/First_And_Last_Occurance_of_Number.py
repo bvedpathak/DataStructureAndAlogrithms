@@ -14,7 +14,7 @@ def lower_bound_binary_search(nums, target):
         if nums[mid] > target:
             right = mid - 1
         elif nums[mid] < target:
-            left = left + 1
+            left = mid + 1
         else:
             right = mid
     return left if nums and nums[left] == target else -1

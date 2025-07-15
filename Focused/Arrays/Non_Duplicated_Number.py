@@ -28,7 +28,7 @@ def find_single_number_v1(nums):
 # The best solution with O(n) time complexity but O(1) space complexity
 # with XOR magic
 def find_single_number_v2(nums):
-    if nums is None or len(nums) < 1:
+    if not nums:
         return None
     
     result = nums[0]

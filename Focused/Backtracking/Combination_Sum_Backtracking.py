@@ -1,5 +1,5 @@
 def combination_sum(nums, target, ans, curr, curr_sum, index):
-    if nums is None or len(nums) < 1:
+    if not nums:
         return 
     
     if curr_sum == target:
@@ -19,3 +19,13 @@ print("\n\n")
 combination_sum(nums, target, ans, [], 0, 0)
 print(f"Combinations adding up to the {target} are: {ans}")
 print("\n\n")
+
+'''
+            
+                2                       3                       6
+            2       
+        2   3   6
+    2   3(x)    6(x)
+        6(x)
+
+'''

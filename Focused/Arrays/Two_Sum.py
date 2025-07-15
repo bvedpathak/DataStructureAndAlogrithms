@@ -36,8 +36,17 @@ def two_sum_v2(nums, sum):
         lookup[num] = sum - num
     return None
 
+# Same solution using Set
+def two_sum_v3(nums, sum):
+    lookup = set()
+    for num in nums:
+        if sum - num in lookup:
+            return [sum - num, num]
+        lookup.add(num)
+    return None
 
 print("\n\n")
 print(two_sum_v1([5,1,3,2,5], 5))
 print(two_sum_v2([5,1,3,2,5], 5))
+print(two_sum_v3([5,1,3,2,5], 5))
 print("\n\n")

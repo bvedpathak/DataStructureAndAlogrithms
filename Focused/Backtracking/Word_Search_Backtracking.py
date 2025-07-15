@@ -37,7 +37,7 @@ board = [
     ['S', 'F', 'C', 'S'],
     ['A', 'D', 'E', 'E'],
 ]
-word = "Z"
+word = "SAD"
 print("\n\n")
 print(f"Does {word} present in board? {adjacent_word_search(board, word)}")
 print("\n\n")

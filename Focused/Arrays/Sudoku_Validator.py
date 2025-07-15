@@ -1,8 +1,6 @@
 def is_sudoku_valid(board):
-    if board is None:
-        return False
-    if len(board) < 1:
-        return False
+    if not board:
+        return None
     
     rows = len(board)
     cols = len(board[0])

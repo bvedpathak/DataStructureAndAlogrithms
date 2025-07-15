@@ -21,5 +21,5 @@ def how_many_geometric_triplet_sequences(nums, r):
 print("\n")
 nums = [2, 1, 2, 4, 8, 8]
 r = 2
-print(f"Numf of geometric triplet in the list {nums} for {r} are: {how_many_geometric_triplet_sequences(nums, r)}")
+print(f"Num of geometric triplet in the list {nums} for {r} are: {how_many_geometric_triplet_sequences(nums, r)}")
 print("\n")

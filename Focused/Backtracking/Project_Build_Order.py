@@ -34,3 +34,15 @@ dependencies = [('a', 'b'), ('f', 'b'), ('b', 'd'), ('f', 'a'), ('d', 'c')]
 print("\n")
 print(build_project_order(projects, dependencies))
 print("\n")
+
+'''
+deps_map = {
+'a': ['b'], 
+'b': ['d'], 
+'c': [], 
+'d': ['c'], 
+'e': [], 
+'f': ['b', 'a']
+}
+
+'''

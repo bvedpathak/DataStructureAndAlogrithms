@@ -1,8 +1,7 @@
 def is_circle_complete(steps):
-    if steps is None or len(steps) < 1:
+    if not steps:
         return None
-    x = 0
-    y = 0
+    x = y = 0
     for step in steps:
         if step == 'U':
             y += 1
@@ -16,5 +15,6 @@ def is_circle_complete(steps):
 
 print("\n\n")
 print(is_circle_complete("UUDD"))
+print(is_circle_complete("DRU"))
 print("\n\n")
 

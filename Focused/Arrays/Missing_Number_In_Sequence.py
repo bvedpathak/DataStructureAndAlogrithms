@@ -1,4 +1,5 @@
 ## Brute Force Solution without using any formula
+## Time: O(n Log n), Space: O(1)
 def find_missing_number_in_sequence(nums):
     sorted_nums = sorted(nums)
     for i in range(1, len(sorted_nums)):
