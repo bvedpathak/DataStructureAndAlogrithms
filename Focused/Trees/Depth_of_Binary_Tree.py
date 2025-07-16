@@ -50,12 +50,10 @@ class BinarySearchTree:
 
 my_tree = BinarySearchTree()
 my_tree.insert(2)
-#my_tree.insert(3)
-#my_tree.insert(1)
-#my_tree.insert(4)
-#my_tree.insert(5)
+my_tree.insert(3)
+my_tree.insert(1)
+my_tree.insert(4)
+my_tree.insert(5)
    
 print(f"The max depth of the Tree is: {my_tree.depth_of_binary_tree(my_tree.root) if my_tree is not None else 0}")
-
-
 

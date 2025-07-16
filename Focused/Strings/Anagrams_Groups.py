@@ -1,4 +1,4 @@
-# O(n) Time complexity and O(n) Space complexity
+# O(n log n) Time complexity and O(n) Space complexity
 def group_anagrams(lst):
     result = []
     lookup = {}

@@ -49,7 +49,7 @@ class BinarySearchTree:
                 return count
             
             if curr_node is None:
-                count += 0
+                #count += 0
                 return count
             
             count = find_kth_smallest(curr_node.left, count, k)

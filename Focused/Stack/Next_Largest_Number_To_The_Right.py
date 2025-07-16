@@ -32,6 +32,6 @@ def larest_number_to_the_right_v2(input):
     return result
 
 print("n")
-input = [1, 1, 1, 1, 1]
+input = [1, 2, 3, 4, 1]
 print(f"Largest Num to the right for {input} are {larest_number_to_the_right_v1(input)}")
 print(f"Largest Num to the right for {input} are {larest_number_to_the_right_v2(input)}")

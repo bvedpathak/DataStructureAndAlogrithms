@@ -1,7 +1,9 @@
+## The constraint is robber can not rob consecutive houses. So given that, 
+## how much max money a robber can rob
 ## Standard recurrsive way of solving the optimization problem
 ## While space complexity is O(1), the time complexity will be O(n2)?
 def rob(houses, i):
-    if houses is None or len(houses) < 1:
+    if not houses:
         return 0
     if i < 0:
         return 0
@@ -11,12 +13,11 @@ def rob(houses, i):
     
     return (max(houses[i] + rob(houses, i-2), rob(houses, i-1)))
 
-houses = [1, 5, 3, 0, 9, 4]
 
 ## Dynamic way of solving the same problem
 ## O(n) time complexity and O(n) space complexity
 def rob_dp(houses):
-    if houses is None or len(houses) < 1:
+    if not houses:
         return 0
     
     result = [0 for _ in range(len(houses))]
@@ -25,6 +26,9 @@ def rob_dp(houses):
         result[i] = max(houses[i] + result[i-2] if i >= 0 else 0, result[i-1] if i >= 0 else 0)
 
     return result[len(houses) - 1]    
+
+
+houses = [1, 5, 3, 0, 9, 4]
 
 print("\n\n")
 print(f"Max money can be robbed using recurrsion: {rob(houses, len(houses) - 1)}")

@@ -53,6 +53,22 @@ def denomination_with_memo(coins, n, curr, result, memo):
     
     return result
 
+## Another tryout for ALL Combinations:
+def denomination_v1(coins, n, ans, curr, index):
+    if not coins:
+        return
+    if n < 0:
+        return
+    if n == 0:
+        ans.append(curr[:])
+    
+    for i in range(index, len(coins)):
+        curr.append(coins[i])
+        denomination_v1(coins, n - coins[i], ans, curr, index)
+        curr.pop()
+    return
+
+
 ## Same (not the actual combinations though but minimum combinations) using DP
 def denomination_with_dp(coins, n):
     dp = [float('inf')] * (n+1)
@@ -71,5 +87,9 @@ print("\n\n")
 print(f"Standard Recurrsion: Possible combinations to achieve {n} are {denomination(coins, n, [], result)}")
 result = []
 print(f"Recurrsion with Memoization: Possible combinations to achieve {n} are {denomination_with_memo(coins, n, [], result, memo)}")
+
+#ans = []
+#print(f"Standard Recurrsion: ALL combinations to achieve {n} are {denomination_v1(coins, n, ans, [], 0)} {ans}" )
+
 print(f"Using DP: Min coins needed to achieve {n} are {denomination_with_dp(coins, n)}")
 print("\n\n")
