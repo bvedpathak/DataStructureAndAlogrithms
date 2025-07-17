@@ -15,7 +15,8 @@ def is_palindrome(input):
     return True
 
 ## Standard recurrsive way to go thru all possible combinations and find out 
-## palindrome substrings within a string O(n2) time complexity
+## palindrome substrings within a string O(n3) time complexity i.e. O(n3) for 
+## recurrsion multiply by another O(n) for palindrome check
 def all_palindrome_substrings(input, i, j, result):
     if input is None or len(input) < 1:
         return result
