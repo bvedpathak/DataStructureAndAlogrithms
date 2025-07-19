@@ -1,18 +1,31 @@
+# This is essentially a DP problem
+# Time: O(n), Space: O(n)
 def max_subarray(nums):
     if not nums:
         return 0
     
     result = list(range(len(nums)))
-    max_sum = nums[0]
-    result[0] = nums[0]
+    max_sum = result[0] = nums[0]
+
     for i in range(1,  len(nums)):
-        if nums[i] > result[i-1] + nums[i]:
-            result[i] = nums[i]
-        else:
-            result[i] = result[i-1] + nums[i]
-            
+        result[i] = max(nums[i], result[i-1] + nums[i])       
         max_sum = max(max_sum, result[i])
     return max_sum
+
+# Below is the most optimal version where we are solving with DP technique only
+# but reducing the space because essentially we only need to track one historic
+# input
+def max_subarray_v1(nums):
+    if not nums:
+        return 0
+    curr_sum = max_sum = nums[0]
+
+    for i in range(1, len(nums)):
+        curr_sum = max(nums[i], curr_sum + nums[i])
+        max_sum = max(max_sum, curr_sum)
+    
+    return max_sum
+
 
 def max_water_container(nums):
     if nums is None or len(nums) < 1:
@@ -58,17 +71,17 @@ def maxArea(height):
 
 # Example 1: Simple case with positive and negative numbers
 input_case_1 = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-result_1 = max_subarray(input_case_1)
+result_1 = max_subarray_v1(input_case_1)
 print("\n\nExample 1: Input:", input_case_1, "\nResult:", result_1)
 
 # Example 2: Case with a negative number in the middle
 input_case_2 = [1, 2, 3, -4, 5, 6]
-result_2 = max_subarray(input_case_2)
+result_2 = max_subarray_v1(input_case_2)
 print("Example 2: Input:", input_case_2, "\nResult:", result_2)
 
 # Example 3: Case with all negative numbers
 input_case_3 = [-1, -2, -3, -4, -5]
-result_3 = max_subarray(input_case_3)
+result_3 = max_subarray_v1(input_case_3)
 print("Example 3: Input:", input_case_3, "\nResult:", result_3)
 
 """

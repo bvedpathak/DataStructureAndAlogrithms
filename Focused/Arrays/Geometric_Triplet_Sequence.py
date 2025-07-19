@@ -1,3 +1,9 @@
+'''
+A geometric triplet refers to a set of three numbers where the ratio between consecutive 
+terms is constant, forming a geometric progression. This means if the triplet is (a, b, c), 
+then b/a = c/b. This relationship can be rewritten as b² = ac. 
+A common example is (2, 4, 8), where the ratio is 2. 
+'''
 # Time: O(n) and Space: O(n)
 def how_many_geometric_triplet_sequences(nums, r):
     result = 0

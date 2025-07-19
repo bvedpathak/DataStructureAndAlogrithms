@@ -1,6 +1,7 @@
 def find_digit_combinations(index, ans, lookup, permutation, digits):
-    if digits is None or len(digits) < 1:
+    if not digits:
         return None
+    
     if len(permutation) == len(digits):
         ans.append(permutation)
         return

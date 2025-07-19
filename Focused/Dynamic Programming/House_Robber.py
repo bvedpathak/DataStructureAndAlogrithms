@@ -13,17 +13,22 @@ def rob(houses, i):
     
     return (max(houses[i] + rob(houses, i-2), rob(houses, i-1)))
 
-
 ## Dynamic way of solving the same problem
-## O(n) time complexity and O(n) space complexity
+## O(n) time complexity and O(n) space complexity  (not there is a more 
+# optimized with using only two variabls instead of full dp)
 def rob_dp(houses):
     if not houses:
         return 0
     
+    if len(houses) == 1:
+        return houses[0]
+    
     result = [0 for _ in range(len(houses))]
+    result[0] = houses[0]
+    result[1] = max(houses[0], houses[1])
 
-    for i in range(len(houses)):
-        result[i] = max(houses[i] + result[i-2] if i >= 0 else 0, result[i-1] if i >= 0 else 0)
+    for i in range(2, len(houses)):
+        result[i] = max(houses[i] + result[i-2], result[i-1])
 
     return result[len(houses) - 1]    
 

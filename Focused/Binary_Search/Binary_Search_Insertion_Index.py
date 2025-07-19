@@ -2,8 +2,9 @@
 # is not present, return the index where it should be added
 # Time: O(log n), Space: O(1)
 def insertion_point_v1(nums, target):
-    if nums is None or len(nums) < 1:
+    if not nums:
         return None
+    
     left = 0
     right = len(nums) - 1
 

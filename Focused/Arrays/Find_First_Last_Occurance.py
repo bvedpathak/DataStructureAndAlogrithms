@@ -62,7 +62,7 @@ def binary_search(nums, target):
 # Iterative Binary Search algo which returns an index instead of 
 # true or false
 def binary_search_index(nums, target):
-    if nums is None or len(nums) < 0:
+    if not nums:
         return -1
     if len(nums) == 1:
         return 0 if nums[0] == target else -1

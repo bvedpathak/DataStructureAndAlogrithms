@@ -8,11 +8,11 @@ def hamming_weights_of_integers_dp(n):
     dp = [0] * (n + 1)
 
     for x in range(1, n + 1):
-        # dp[x] is obtained using the result of dp[x >> 1] pluse the LSB of 'x'
+        # dp[x] is obtained using the result of dp[x >> 1] plus the LSB of 'x'
         dp[x] = dp[x >> 1] + (x & 1)
     
     return dp
 
 print("\n")
 n = 7
-print(f"Hamming weight for {n} is: {hamming_weights_of_integers_dp(n)}")
+print(f"Hamming weight for all numbers including {n} is: {hamming_weights_of_integers_dp(n)}")

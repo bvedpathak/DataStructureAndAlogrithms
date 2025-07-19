@@ -5,6 +5,7 @@ def isBadVersion(n):
     return False
 
 ## Brute Force method with O(n) time complexity
+## Time: O(n), Space: O(1)
 def find_first_bad_version(nums):
     for num in nums:
         if isBadVersion(num):
@@ -16,7 +17,7 @@ def find_first_bad_version(nums):
 def find_first_bad_version_v1(nums):
     if not nums:
         return None
-    l, r = 0, len(nums)
+    l, r = 0, len(nums) - 1
     while l < r:
         mid = (l + r) // 2
         if isBadVersion(nums[mid]):
@@ -26,5 +27,5 @@ def find_first_bad_version_v1(nums):
     return nums[l]
 
 print("\n\n")
-print(find_first_bad_version_v1([1,2,3,4,5,6,7,8,9,10]))
+print(find_first_bad_version_v1([1,2,3,4,5,6,7,8,9,10,11]))
 print("\n\n")

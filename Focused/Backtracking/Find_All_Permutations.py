@@ -14,6 +14,7 @@ def backtrack(nums, used, curr, res):
             used.remove(num)
     return
 
+
 def find_all_permutations(nums):
     res = []
     backtrack(nums, set(), [], res)
@@ -22,3 +23,4 @@ def find_all_permutations(nums):
 print("\n")
 nums = [4, 5, 6]
 print(f"All permulations of the {nums} are: {find_all_permutations(nums)}")
+

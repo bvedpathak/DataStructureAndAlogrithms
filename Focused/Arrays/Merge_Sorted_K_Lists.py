@@ -1,6 +1,6 @@
 # Solution using two pointers method with O(n) time complexity
 def merge_two_sorted_lists(lst1, lst2):
-    if lst1 is None or len(lst1) < 1:
+    if not lst1:
         return lst2 
     l1 = 0
     l2 = 0
@@ -33,7 +33,7 @@ def merge_k_sorted_lists(input_list):
 # Recurrsive way of merging - This one is more efficient than the 
 # iterative way
 def merge(input_list):
-    if input_list is None or len(input_list) < 1:
+    if not input_list:
         return None
     if len(input_list) == 1:
         return input_list[0]

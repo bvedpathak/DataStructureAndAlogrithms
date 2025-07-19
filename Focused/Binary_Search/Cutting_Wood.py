@@ -3,8 +3,9 @@
 # is given by the numbers in the list and a value k representing the
 # total length of wood that needs to be cut
 def highest_possible_height(trees, k):
-    if trees is None or len(trees) < 1:
+    if not trees:
         return 0
+    
     # we will use Binary search on possible height settings to determine
     # the appropriate height
     bottom = 0

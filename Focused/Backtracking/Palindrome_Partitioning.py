@@ -1,6 +1,7 @@
 def is_palindrome(str):
-    if str is None or len(str) < 1:
+    if not str:
         return False
+    
     i = 0
     j = len(str) - 1
 
@@ -14,7 +15,7 @@ def is_palindrome(str):
 
 def palindrome_substrings(str, curr, ans, index):
 
-    if str is None or len(str) < 1:
+    if not str:
         return 
     
     if index >= len(str):

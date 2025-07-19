@@ -30,7 +30,7 @@ def find_single_number_v1(nums):
 def find_single_number_v2(nums):
     if not nums:
         return None
-    
+    # This one is key starting point..
     result = nums[0]
     for i in range(1, len(nums)):
         result ^= nums[i]
