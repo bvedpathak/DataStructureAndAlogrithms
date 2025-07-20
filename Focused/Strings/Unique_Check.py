@@ -27,7 +27,7 @@ def unique_check_without_datastructure_optimal(str1):
             return False
     return True
 
-## A better way to determine if a string has all unique chars (w/o using extra space)
+## An optimized way to determine if a string has all unique chars (w/o using extra space)
 ## Time: O(n), Space: O(1)
 ## Assumption: Input will be ASCII which is max 128 chars so we can have a constant 128 char
 ## lookup array regardless of the input size i.e. constant space that is O(1)

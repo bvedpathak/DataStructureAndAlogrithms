@@ -1,9 +1,11 @@
 # O(n log n) Time complexity and O(n) Space complexity
 def group_anagrams(lst):
+    if not lst:
+        return [""]
+    
     result = []
     lookup = {}
-    if lst is None or len(lst) < 1:
-        return [""]
+    
     for str in lst:
         sorted_str = "".join(sorted(str))
         if sorted_str in lookup:

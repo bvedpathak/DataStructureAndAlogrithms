@@ -44,9 +44,7 @@ class BinarySearchTree:
         if root is None:
             return None
         
-        temp_node = self.invert_tree(root.left)
-        root.left = self.invert_tree(root.right)
-        root.right = temp_node
+        root.right, root.left = self.invert_tree(root.left), self.invert_tree(root.right)
         return root
 
 my_tree = BinarySearchTree()

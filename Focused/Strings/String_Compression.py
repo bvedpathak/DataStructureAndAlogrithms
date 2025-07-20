@@ -20,7 +20,8 @@ def compress(str1):
                 counter = 1
             continue
         counter += 1
-
+    
+    # Do not forget the last char
     result.append(str1[-1])
     if counter > 1:
         result.append(counter)

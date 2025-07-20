@@ -22,7 +22,8 @@ def longest_unique_substring(str1):
 
     return max_substring
 
-str1 = "abccdefg"
+
+str1 = "abccdef"
 print("\n")
 print(f"Longest Unique Character Substring for the string {str1} is: {longest_unique_substring(str1)}")
 print("\n")

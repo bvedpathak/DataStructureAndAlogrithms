@@ -5,9 +5,7 @@ def selection_sort(lst):
             if lst[min_idx] > lst[j]:
                 min_idx = j
         if i != min_idx:
-            temp = lst[i]
-            lst[i] = lst[min_idx]
-            lst[min_idx] = temp
+            lst[i], lst[min_idx] = lst[min_idx], lst[i]
     return lst
 
 print(selection_sort([4,2,6,5,1,3]))
