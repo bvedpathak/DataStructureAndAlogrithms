@@ -1,4 +1,8 @@
 # Brute force method with O(n2) time complexity and O(1) space complexity
+# # This was asked to me udring the Visa Inc. coding interview
+# The main constraint was I should not use the extra space. I gave Brute Force
+# solution but thinking, I could have just given sorting solution (the input array 
+# needed modification though..)
 def two_sum(nums, sum):
     for i in range(len(nums)):
         for j in range(i, len(nums)):
@@ -28,6 +32,7 @@ def two_sum_v1(nums, sum):
         
 
 # Optimal solution with O(n) time complexity and O(n) space complexity
+
 def two_sum_v2(nums, sum):
     lookup = dict()
     for num in nums:
