@@ -64,6 +64,25 @@ class BinarySearchTree:
         
         find_kth_smallest(curr_node, count, k)
         return ans_node.value if ans_node is not None else None
+    
+    # This is more simplified version of the same function. 
+    # Both have Time: O(k) and Space: O(1)
+    def find_kth_smallest(self, root, k, ans, count):
+        if not root:
+            return count
+        
+        if count < k:
+            count = self.find_kth_smallest(root.left, k, ans, count)
+            
+            # These are the key statements on maintaining a count and 
+            # recording kth smallest if/when we encounter it
+            count += 1
+            if k == count:
+                ans.append(root)
+    
+            count = self.find_kth_smallest(root.right, k, ans, count)
+        
+        return count
 
 my_tree = BinarySearchTree()
 my_tree.insert(5)
@@ -81,8 +100,9 @@ k = 7
 my_tree.print_tree(my_tree.root, 0, "Root: ")
 
 print(f"The {k}th smallest in the Tree is: {my_tree.kth_smallest(my_tree.root, 0, k)}")
-
-
+ans = []
+my_tree.find_kth_smallest(my_tree.root, k, ans, 0)
+print(f"The {k}th smallest in the Tree is: {ans[0].value if ans else None}")
 
 
 

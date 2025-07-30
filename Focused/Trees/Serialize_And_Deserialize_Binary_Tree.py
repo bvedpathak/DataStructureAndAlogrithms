@@ -54,8 +54,9 @@ class BinarySearchTree:
     def deserialize_binary_tree(self, val):
         queue = val.split("#")
         def deserialize(queue):
-            if queue is None or len(queue) < 1:
+            if not queue:
                 return None
+            
             node_val = queue.pop(0)
             
             if node_val == 'X':
