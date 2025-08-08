@@ -1,3 +1,11 @@
+# You are given a string containing digits from 2 to 9 inclusive. Each digit maps to a set of letters
+# as on a traditional phone keypad:
+# Return all possible letter combinations the input digits could represent.
+# Example:
+# Input: digits = "69"
+# Output: ["mw", "mx", "my", "mz", "nw", "nx", "ny", "nz", "ow", "ox", "oy",
+# "oz"]
+
 def find_digit_combinations(index, ans, lookup, permutation, digits):
     if not digits:
         return None

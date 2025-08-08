@@ -1,3 +1,14 @@
+# Given an integer array and a target value, find all unique combinations in the array where the
+# numbers in each combination sum to the target. Each number in the array may be used an
+# unlimited number of times in the combination.
+# Example:
+# Input: nums = [1, 2, 3], target = 4
+# Output: [[1, 1, 1, 1], [1, 1, 2], [1, 3], [2, 2]]
+# Constraints:
+# All integers in nums are positive and unique.
+# The target value is positive.
+# The output must not contain duplicate combinations.
+
 def combination_sum(nums, target, ans, curr, curr_sum, index):
     if not nums:
         return 
@@ -7,7 +18,7 @@ def combination_sum(nums, target, ans, curr, curr_sum, index):
     elif curr_sum < target: 
         for i in range(index, len(nums)):
             curr.append(nums[i])
-            combination_sum(nums, target, ans, curr, curr_sum+nums[i], i)
+            combination_sum(nums, target, ans, curr, curr_sum + nums[i], i)
             curr.pop()
     return
 
