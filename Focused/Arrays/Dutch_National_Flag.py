@@ -5,7 +5,8 @@
 # Input: nums = [0, 1, 2, 0, 1, 2, 0]
 # Output: [0, 0, 0, 1, 1, 2, 2]
 # Basically it is a sorting problem just that since we have only 3 types of values
-# we can do better than the standard O(n. log n) using the contraints
+# we can do better than the standard O(n. log n) using the contraints. In short, it 
+# is a two pointer technique
 # Time: O(n), Space: O(1)
 def duch_national_flag(nums):
     if not nums:
@@ -24,7 +25,7 @@ def duch_national_flag(nums):
             i += 1
         else:
             i += 1
-
+    # Return the in-place sorted array
     return nums
 
 nums = [0, 1, 2, 0, 1, 2, 0]
