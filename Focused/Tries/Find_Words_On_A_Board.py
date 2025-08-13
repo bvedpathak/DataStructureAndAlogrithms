@@ -44,11 +44,14 @@ def dfs(board, r, c, node, res):
     # Backgrack the reverting the cell back to its original character
     board[r][c] = temp
 
-    def is_within_bounds(r, c, board):
-        return 0 <= r < len(board) and 0 <= c < len(board[0])
-    '''
-    board = [['b', 'y', 's'],
-             ['b', 'y', 's'],
-             ['b', 'y', 's']
-             
-'''
+def is_within_bounds(r, c, board):
+    return 0 <= r < len(board) and 0 <= c < len(board[0])
+    
+board = [['b', 'y', 's'],
+         ['r', 't', 'e'],
+         ['a', 'i', 'n']
+        ]
+
+words = ["byte", "bytes", "rat", "rain", "trait", "train"]
+
+print(f"\nWords present on the board from in input are: {find_all_words_on_a_board(board, words)}\n")
